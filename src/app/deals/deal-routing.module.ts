@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DealListComponent } from './deal-list.component';
+import { DealListComponent } from './deal-list/deal-list.component';
+import { DealsComponent } from './deals.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: DealListComponent
+    component: DealsComponent
   }
 ];
 
@@ -15,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DealListRoutingModule { }
+export class DealsRoutingModule { }

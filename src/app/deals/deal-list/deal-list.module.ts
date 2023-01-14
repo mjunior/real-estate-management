@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DealListComponent } from './deal-list.component';
-import { DealListRoutingModule } from './deal-list-routing.module';
+import { DealsRoutingModule } from '../deal-routing.module';
 import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   imports: [
     CommonModule,
-    DealListRoutingModule,
+    DealsRoutingModule,
     MatTableModule
   ],
-  declarations: [DealListComponent]
+  declarations: [DealListComponent],
+  exports: [
+    DealListComponent
+  ]
 })
 export class DealListModule { }
