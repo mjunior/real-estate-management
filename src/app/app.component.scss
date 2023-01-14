@@ -1,0 +1,23 @@
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding-top: 45px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column ;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  background: #2d253a;
+  color: #fff;
+
+  &__title {
+    font-size: 32px
+  }
+
+  &__subtitle {
+    font-size: 16px
+  }
+}
