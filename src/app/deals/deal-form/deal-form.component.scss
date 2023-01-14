@@ -1,0 +1,13 @@
+.input-line {
+  mat-form-field:nth-child(2) {
+    margin-left: 15px;
+  }
+}
+
+.actions {
+ display: flex;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
