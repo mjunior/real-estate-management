@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { Deal } from './interfaces/deal.interface';
 import { DealsDataService } from './services/deals-data.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -27,7 +27,7 @@ export class DealsComponent implements OnInit {
       data: {},
     });
 
-    dialogRef.afterClosed().subscribe((result: Deal) => {
+    dialogRef.afterClosed().pipe(take(1)).subscribe((result: Deal) => {
       if(result) {
         this.dealService.addDeal(result);
       }
