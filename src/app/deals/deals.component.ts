@@ -1,24 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-export interface Deal {
-  name: string;
-  purchasePrice: number;
-  address: string;
-  noi: number;
-  capRate: number
-}
-
-const DEALS_LIST: Deal[] = [
-  { capRate: 1, purchasePrice: 1, name: 'Deal 001', noi: 1.0079, address: '6 Office Park Cir #218' },
-  { capRate: 1, purchasePrice: 1, name: 'Deal 002', noi: 4.0016, address: '6 Office Park Cir #218' },
-  { capRate: 1, purchasePrice: 1, name: 'Deal 003', noi: 6.941, address: '6 Office Park Cir #218' },
-  { capRate: 1, purchasePrice: 1, name: 'Deal 004', noi: 9.0111, address: '6 Office Park Cir #218' },
-  { capRate: 1, purchasePrice: 1, name: 'Deal 005', noi: 10.811, address: '6 Office Park Cir #218' },
-  { capRate: 1, purchasePrice: 1, name: 'Deal 006', noi: 11.0107, address: '6 Office Park Cir #218' },
-  { capRate: 1, purchasePrice: 1, name: 'Deal 007', noi: 14.0067, address: '6 Office Park Cir #218' },
-  { capRate: 1, purchasePrice: 1, name: 'Deal 008', noi: 15.9994, address: '6 Office Park Cir #218' },
-  { capRate: 1, purchasePrice: 1, name: 'Deal 009', noi: 18.9984, address: '6 Office Park Cir #218' },
-  { capRate: 1, purchasePrice: 1, name: 'Deal 010', noi: 20.1797, address: '6 Office Park Cir #218' },
-];
+import { Observable } from 'rxjs';
+import { Deal } from './interfaces/deal.interface';
+import { DealsDataService } from './services/deals-data.service';
 
 @Component({
   selector: 'app-deals',
@@ -26,11 +9,23 @@ const DEALS_LIST: Deal[] = [
   styleUrls: ['./deals.component.css']
 })
 export class DealsComponent implements OnInit {
-  
-  dealsList = DEALS_LIST
-  constructor() { }
+
+  deals$: Observable<Deal[]>
+
+  constructor(private dealService: DealsDataService) { }
 
   ngOnInit() {
+    this.deals$ = this.dealService.getDeals();
   }
 
+
+  newDeal() {
+    this.dealService.addDeal({
+      name: 'new deal',
+      purchasePrice: 1,
+      address: 'string',
+      noi: 22222,
+      capRate: 2222
+    })
+  }
 }

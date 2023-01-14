@@ -1,1 +1,2 @@
-<app-deal-list *ngIf="dealsList.length > 0" [data]="dealsList"></app-deal-list>
+<button (click)="newDeal()">new deal</button>
+<app-deal-list [data]="deals$ | async"></app-deal-list>
