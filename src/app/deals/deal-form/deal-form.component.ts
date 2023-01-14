@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { merge, Observable, of, Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { merge, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-deal-form',
@@ -9,15 +10,17 @@ import { merge, Observable, of, Subscription } from 'rxjs';
 })
 export class DealFormComponent implements OnInit, OnDestroy {
   dealForm: FormGroup;
-  rateSubscription: Subscription;
+  rateSubscription: Subscription; 
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder,
+    public dialogRef: MatDialogRef<DealFormComponent>,
+) { 
     this.dealForm = this.fb.group({
       name: ['', Validators.required],
       purchasePrice: ['', Validators.required],
       address: ['', Validators.required],
       noi: ['', Validators.required],
-      capRate: ['', Validators.required]
+      capRate: ['', Validators.required, ]
     });
   }
 
@@ -26,7 +29,7 @@ export class DealFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.rateSubscription.unsubscribe();
+    this.rateSubscription?.unsubscribe();
   }
 
   capRateSubscription() {
@@ -41,6 +44,17 @@ export class DealFormComponent implements OnInit, OnDestroy {
       
       this.dealForm.patchValue({ capRate })
     })
+  }
+
+  save() {
+    this.dealForm.updateValueAndValidity();
+    if (this.dealForm.valid) {
+      this.dialogRef.close(this.dealForm.getRawValue());
+    }
+  }
+
+  discart() {
+    this.dialogRef.close();
   }
 
 }

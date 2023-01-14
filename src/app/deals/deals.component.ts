@@ -21,25 +21,16 @@ export class DealsComponent implements OnInit {
   ngOnInit() {
     this.deals$ = this.dealService.getDeals();
   }
-
-
-  newDeal() {
-    this.dealService.addDeal({
-      name: 'new deal',
-      purchasePrice: 1,
-      address: 'string',
-      noi: 22222,
-      capRate: 2222
-    })
-  }
-
+  
   newDealDialog(): void {
     const dialogRef = this.dialog.open(DealFormComponent, {
       data: {},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
+    dialogRef.afterClosed().subscribe((result: Deal) => {
+      if(result) {
+        this.dealService.addDeal(result);
+      }
     });
   }
 }

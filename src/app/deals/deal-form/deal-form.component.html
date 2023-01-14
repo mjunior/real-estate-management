@@ -29,14 +29,14 @@
   <div class="input-line">
     <mat-form-field>
       <mat-label>Cap Rate</mat-label>
-      <input formControlName="capRate" matInput placeholder="Placeholder">
+      <input readonly="true" formControlName="capRate" matInput placeholder="Placeholder">
     </mat-form-field>
   </div>
 
   <div class="actions">
-    <button mat-stroked-button color="warn">Discart</button>
+    <button mat-stroked-button color="warn" (click)="discart()">Discart</button>
 
     <div class="spacer"></div>
-    <button mat-raised-button color="primary">Save</button>
+    <button id="save-button" [disabled]="dealForm.invalid" mat-raised-button color="primary" (click)="save()">Save</button>
   </div>
 </form>
