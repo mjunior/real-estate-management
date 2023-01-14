@@ -20,7 +20,7 @@ export class DealFormComponent implements OnInit, OnDestroy {
       purchasePrice: ['', Validators.required],
       address: ['', Validators.required],
       noi: ['', Validators.required],
-      capRate: ['', Validators.required, ]
+      capRate: ['', Validators.required]
     });
   }
 
@@ -42,7 +42,7 @@ export class DealFormComponent implements OnInit, OnDestroy {
       
       const capRate = noi/pPrice * 100;
       
-      this.dealForm.patchValue({ capRate })
+      this.dealForm.patchValue({ capRate: capRate.toFixed(2) })
     })
   }
 

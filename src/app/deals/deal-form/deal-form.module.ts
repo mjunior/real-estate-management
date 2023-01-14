@@ -5,6 +5,7 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/mat
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { NgxCurrencyModule } from "ngx-currency";
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    NgxCurrencyModule
   ],
   declarations: [DealFormComponent],
   exports: [DealFormComponent],

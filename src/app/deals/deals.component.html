@@ -1,2 +1,7 @@
-<button (click)="newDealDialog()">new Deal</button>
+<div class="actions">
+  <button mat-flat-button color="primary" (click)="newDealDialog()">
+    <mat-icon>add</mat-icon>
+    New Deal
+  </button>
+</div>
 <app-deal-list [data]="deals$ | async"></app-deal-list>

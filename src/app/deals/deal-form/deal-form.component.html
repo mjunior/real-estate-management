@@ -3,33 +3,33 @@
   <div class="input-line">
     <mat-form-field [style.width.%]="100">
       <mat-label>Deal Name</mat-label>
-      <input formControlName="name" matInput placeholder="Placeholder">
+      <input formControlName="name" matInput placeholder="Deal Name">
     </mat-form-field>
   </div>
 
   <div class="input-line">
     <mat-form-field [style.width.%]="100">
       <mat-label>Address</mat-label>
-      <input formControlName="address" matInput placeholder="Placeholder">
+      <input formControlName="address" matInput placeholder="Full Address">
     </mat-form-field>
   </div>
 
   <div class="input-line">
     <mat-form-field>
       <mat-label>Purchase Price</mat-label>
-      <input formControlName="purchasePrice" matInput placeholder="Placeholder">
+      <input currencyMask formControlName="purchasePrice" matInput placeholder="Purchase Price">
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>NOI</mat-label>
-      <input formControlName="noi" matInput placeholder="Placeholder">
+      <mat-label>Net Operating Income</mat-label>
+      <input currencyMask formControlName="noi" matInput placeholder="Net Operating Income)">
     </mat-form-field>
   </div>
 
   <div class="input-line">
     <mat-form-field>
-      <mat-label>Cap Rate</mat-label>
-      <input readonly="true" formControlName="capRate" matInput placeholder="Placeholder">
+      <mat-label>Cap Rate (%)</mat-label>
+      <input class="right-align" readonly="true" formControlName="capRate" matInput placeholder="Cap Rate %">
     </mat-form-field>
   </div>
 

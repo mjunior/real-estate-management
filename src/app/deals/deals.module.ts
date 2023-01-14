@@ -6,6 +6,8 @@ import { DealListModule } from './deal-list/deal-list.module';
 import { DealsDataService } from './services/deals-data.service';
 import { DealFormModule } from './deal-form/deal-form.module';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -13,7 +15,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     DealListModule,
     DealFormModule,
     DealsRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     DealsDataService
