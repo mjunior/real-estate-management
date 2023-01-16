@@ -7,6 +7,22 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DealFormComponent } from './deal-form.component';
 import { DealFormModule } from './deal-form.module';
+import { NgxCurrencyModule } from "ngx-currency";
+
+import { Directive, ElementRef } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+@Directive({
+  selector: '[currencyMask]'
+})
+export class MockCurrencyDirective {
+  constructor() {
+  }
+}
 
 describe('DealFormComponent', () => {
   let fixture: ComponentFixture<DealFormComponent>;
@@ -16,10 +32,16 @@ describe('DealFormComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        DealFormModule,
         NoopAnimationsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule,
       ],
       declarations: [
+        MockCurrencyDirective,
         DealFormComponent
       ],
       providers: [
@@ -31,7 +53,7 @@ describe('DealFormComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create the app', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
@@ -91,14 +113,14 @@ describe('DealFormComponent', () => {
           purchasePrice: 100,
         });
         fixture.detectChanges();
-        expect(component.dealForm.controls['capRate'].value).toEqual(10)
+        expect(component.dealForm.controls['capRate'].value).toEqual('10.00')
 
         component.dealForm.patchValue({
           noi: 25,
           purchasePrice: 100,
         });
         fixture.detectChanges();
-        expect(component.dealForm.controls['capRate'].value).toEqual(25)
+        expect(component.dealForm.controls['capRate'].value).toEqual('25.00')
       })
     })
   })

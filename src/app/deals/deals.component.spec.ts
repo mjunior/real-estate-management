@@ -13,14 +13,14 @@ const MOCK_DEAL_LIST: Deal[] = [
   { capRate: 1, purchasePrice: 1, name: 'Deal 002', noi: 4.0016, address: '6 Office Park Cir #218' },
 ]
 
-describe('DealFormComponent', () => {
+describe('DealsComponent', () => {
   let fixture: ComponentFixture<DealsComponent>;
   let component: DealsComponent;
   let dealService: DealsDataService;
 
   const dealServiceMock = {
     getDeals: () => {
-      of(MOCK_DEAL_LIST)
+      return of(MOCK_DEAL_LIST)
     },
     
     addDeal: (deal: Deal) => {}

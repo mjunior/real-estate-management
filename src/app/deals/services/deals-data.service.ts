@@ -14,7 +14,23 @@ const MOCK_DEAL_LIST: Deal[] = [
   { capRate: 1, purchasePrice: 1, name: 'Deal 008', noi: 15.9994, address: '6 Office Park Cir #218' },
   { capRate: 1, purchasePrice: 1, name: 'Deal 009', noi: 18.9984, address: '6 Office Park Cir #218' },
   { capRate: 1, purchasePrice: 1, name: 'Deal 010', noi: 20.1797, address: '6 Office Park Cir #218' },
-];
+  { capRate: 1, purchasePrice: 1, name: 'Deal 011', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 012', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 013', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 014', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 015', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 016', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 017', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 018', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 019', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 020', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 021', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 022', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 023', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 024', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 025', noi: 20.1797, address: '6 Office Park Cir #218' },
+  { capRate: 1, purchasePrice: 1, name: 'Deal 026', noi: 20.1797, address: '6 Office Park Cir #218' },
+]
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +38,7 @@ const MOCK_DEAL_LIST: Deal[] = [
 export class DealsDataService {
 
   private dealData = new BehaviorSubject<Deal[]>(MOCK_DEAL_LIST);
-
+  
   constructor() { }
 
   addDeal(deal: Deal): void {

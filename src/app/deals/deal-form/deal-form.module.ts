@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxCurrencyModule } from "ngx-currency";
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { NgxCurrencyModule } from "ngx-currency";
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
     NgxCurrencyModule
   ],
   declarations: [DealFormComponent],

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, take } from 'rxjs';
+import { Observable, of, take } from 'rxjs';
 import { Deal } from './interfaces/deal.interface';
 import { DealsDataService } from './services/deals-data.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -12,14 +12,16 @@ import { DealFormComponent } from './deal-form/deal-form.component';
 })
 export class DealsComponent implements OnInit {
 
-  deals$: Observable<Deal[]>
+  deals: Deal[];
 
   constructor(
     private dealService: DealsDataService,
     public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.deals$ = this.dealService.getDeals();
+    this.dealService.getDeals().pipe(take(1)).subscribe((deals) => {
+      this.deals = deals
+    })
   }
   
   newDealDialog(): void {
@@ -30,6 +32,9 @@ export class DealsComponent implements OnInit {
     dialogRef.afterClosed().pipe(take(1)).subscribe((result: Deal) => {
       if(result) {
         this.dealService.addDeal(result);
+        this.dealService.getDeals().pipe(take(1)).subscribe((deals) => {
+          this.deals = [...deals]
+        })
       }
     });
   }
